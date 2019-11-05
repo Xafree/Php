@@ -1,3 +1,11 @@
+<?php   
+      setcookie('Mycookie','Ouais',time()+(8600*30));
+    if(isset($_POST['cookie'])){
+        $_COOKIE['Mycookie'] = $_POST['cookie'];
+
+    }
+    echo $_COOKIE['Mycookie'];
+?>
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -146,11 +154,11 @@
         <form action="test.php" method="post">
             <div>
                 <label for="nombre1">Nombre 1 :</label>
-                <input type="text" id="résultat" name="user_nb1" value ="<?php echo $_POST['user_nb1'];?>">
+                <input type="text" id="résultat" name="user_nb1" value = "Entre une valeur" >
             </div>
             <div>
                 <label for="nombre2">Nombre 2 :</label>
-                <input type="text" id="résultat" name="user_nb2" value ="<?php echo $_POST['user_nb2'];?>">
+                <input type="text" id="résultat" name="user_nb2" value = "Enter une valeur" >
             </div>
             <?php 
                 if(isset($_POST['user_additionenr'])){
@@ -168,7 +176,7 @@
             ?>
             <div>
                 <label for="resultat">Résultat :</label>
-                <input type="text" id="resultat" name="user_resultat" value=" <?php echo $_POST['user_resultat'];?>" >
+                <input type="text" id="resultat" name="user_resultat" value= "<?php echo $_POST['user_resultat'];?>" >
             </div>
             <input type="submit" id="Additionner" name="user_additionenr" value="Additionner">
             <input type="submit" id="Soustraire" name="user_sustraire" value="Soustraire">
@@ -180,9 +188,27 @@
         <?php 
             echo "<br/>--------------------------- Exercice 8 ----------------------------------<br/>";
         ?>
-        <form action="test.php" method="get">
+        <form action="test.php" method="post">
             <div>
                 <label for="name">Nom :</label>
+                <input type="text" id="name" name="user_name" >
+            </div>
+            <div>
+            <input type="submit" id="envoyer" name="coockie">
+        </form>
+        <?php
+             
+        ?>
+        <?php 
+            echo "<br/>--------------------------- Exercice 9 ----------------------------------<br/>";
+        ?>
+        <form action="test.php" method="post">
+            <div>
+                <label for="name">Nom :</label>
+                <input type="text" id="name" name="user_name" >
+            </div>
+            <div>
+                <label for="name">Mot de passe :</label>
                 <input type="text" id="name" name="user_name" >
             </div>
             <input type="submit" id="envoyer" name="input_name">
