@@ -1,10 +1,9 @@
-<?php   
-      setcookie('Mycookie','Ouais',time()+(8600*30));
-    if(isset($_POST['cookie'])){
-        $_COOKIE['Mycookie'] = $_POST['cookie'];
-
-    }
-    echo $_COOKIE['Mycookie'];
+<?php 
+        if(isset($_POST['envoie'])){
+            setcookie('pseudo', $_POST['user_name'], time() + 10);  
+        }else{
+            echo "formulaire non rempli";
+        }
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -154,11 +153,11 @@
         <form action="test.php" method="post">
             <div>
                 <label for="nombre1">Nombre 1 :</label>
-                <input type="text" id="résultat" name="user_nb1" value = "Entre une valeur" >
+                <input type="number" id="résultat" name="user_nb1" value = <?php echo $_POST['user_nb1'] ?>>
             </div>
             <div>
                 <label for="nombre2">Nombre 2 :</label>
-                <input type="text" id="résultat" name="user_nb2" value = "Enter une valeur" >
+                <input type="number" id="résultat" name="user_nb2" value = <?php echo $_POST['user_nb2'] ?>>
             </div>
             <?php 
                 if(isset($_POST['user_additionenr'])){
@@ -176,7 +175,7 @@
             ?>
             <div>
                 <label for="resultat">Résultat :</label>
-                <input type="text" id="resultat" name="user_resultat" value= "<?php echo $_POST['user_resultat'];?>" >
+                <input type="number" id="resultat" name="user_resultat" value= "<?php echo $_POST['user_resultat'];?>" >
             </div>
             <input type="submit" id="Additionner" name="user_additionenr" value="Additionner">
             <input type="submit" id="Soustraire" name="user_sustraire" value="Soustraire">
@@ -188,16 +187,29 @@
         <?php 
             echo "<br/>--------------------------- Exercice 8 ----------------------------------<br/>";
         ?>
-        <form action="test.php" method="post">
+        <!-- <form action="test.php" method="post">
             <div>
                 <label for="name">Nom :</label>
                 <input type="text" id="name" name="user_name" >
             </div>
             <div>
-            <input type="submit" id="envoyer" name="coockie">
-        </form>
-        <?php
-             
+            <input type="submit" id="envoyer" name="envoie">
+        </form> -->
+        <?php 
+            if(!isset($_COOKIE['pseudo'])){
+                ?>
+                <form action="test.php" method="post">
+                    <div>
+                        <label for="name">Nom :</label>
+                        <input type="text" id="name" name="user_name" >
+                    </div>
+                    <div>
+                    <input type="submit" id="envoyer" name="envoie">
+                </form>
+                <?php
+            }else{
+                echo "<br/> bienvenue monsieur ". $_COOKIE['pseudo'];
+            }
         ?>
         <?php 
             echo "<br/>--------------------------- Exercice 9 ----------------------------------<br/>";
@@ -215,6 +227,11 @@
         </form>
         <?php 
             $_COOKIE['user_name'];
+            //a faire plustard je comprend r au cookie
+        ?>
+
+        <?php
+         echo "<br/>--------------------------- Exercice 10 ----------------------------------<br/>";
         ?>
     </body>
 </html>
