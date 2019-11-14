@@ -4,16 +4,38 @@
 
     </head>
     <body>
-        <form action="test.php" method="POST">
+        <h2>Le formulaire d'entrée</h2>
+        <form action="ajoutcontact.php" method="POST">
             <div>
-                <label for="nombre1">Nom :</label>
-                <input type="number" id="résultat" name="user_name" >
+                <label for="nom">Nom :</label>
+                <input type="text" id="nom" name="user_name" >
+            </div>
+            <div>
+                <label for="Prenom">Prénom :</label>
+                <input type="text" id="Prénom" name="user_prenom" >
+            </div>
+            <div>
+                <label for="Adresse">Adresse :</label>
+                <input type="text" id="Adresse" name="user_adresse" >
+            </div>
+            <div>
+                <label for="Cp">Code postal :</label>
+                <input type="text" id="cp" name="user_code_postal" >
+            </div>
+            <div>
+                <label for="Ville">Ville :</label>
+                <input type="text" id="cp" name="user_Ville" >
+            </div>
+            <div>
+                <label for="tel">Téléphone :</label>
+                <input type="text" id="tel" name="user_telephone" >
             </div>
             <div>
                 <label for="nombre2">mot de passe :</label>
                 <input type="password" id="résultat" name="user_mot_de_passe" >
             </div>
             <input type="submit" id="envoyer" name="user_valider" value="Valider">
+            <input type="reset" id="envoyer" name="user_valider" value="Effacer">
         </form>
     </body>
 </html>
